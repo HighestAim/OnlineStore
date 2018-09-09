@@ -1,0 +1,22 @@
+﻿[
+  {
+    "Name": "Organic Products",
+    "SeederId": 1
+  },
+  {
+    "Name": "Meat Products",
+    "SeederId": 2
+  },
+  {
+    "Name": "Fish and Seafood",
+    "SeederId": 3
+  },
+  {
+    "Name": "Frozen Products",
+    "SeederId": 4
+  },
+  {
+    "Name": "Sweets",
+    "SeederId": 5
+  }
+]

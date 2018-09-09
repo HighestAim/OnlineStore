@@ -1,0 +1,82 @@
+﻿[
+  {
+    "Name": "Sausage",
+    "Description": "Sausage Description",
+    "Url": "https://www.sas.am/images/cache/c6e/a75/769b6f0785a38a8e0cad579817a720bd.jpg",
+    "Price": "10",
+    "CategorySeederId": 2,
+    "SeederId": 1
+  },
+  {
+    "Name": "Backyard",
+    "Description": "Backyard Description",
+    "Url": "https://www.sas.am/images/cache/0a7/506/1c15ddb639de304a60909b8cc21d7da7.jpg",
+    "Price": "15",
+    "CategorySeederId": 2,
+    "SeederId": 2
+  },
+  {
+    "Name": "Soudjuk",
+    "Description": "Soudjuk Description",
+    "Url": "https://www.sas.am/images/cache/5f9/740/25cc1845b7aaf35efd9f395e6a17877a.JPG",
+    "Price": "17",
+    "CategorySeederId": 2,
+    "SeederId": 3
+  },
+  {
+    "Name": "Crab",
+    "Description": "Sausage Description",
+    "Url": "https://www.sas.am/images/cache/b69/6cd/610ed9b917c155d9c7fc5a56c3df8af7.JPG",
+    "Price": "24",
+    "CategorySeederId": 3,
+    "SeederId": 4
+  },
+  {
+    "Name": "Fresh Fish",
+    "Description": "Fresh Fish Description",
+    "Url": "https://www.sas.am/images/cache/2d0/7f8/6d985496a5be469eaca98bc18c005218.JPG",
+    "Price": "30",
+    "CategorySeederId": 3,
+    "SeederId": 5
+  },
+  {
+    "Name": "Peach",
+    "Description": "Peach Description",
+    "Url": "https://www.sas.am/images/cache/13f/377/86034e7b44c1659ae643833850b8c950.jpg",
+    "Price": "12",
+    "CategorySeederId": 1,
+    "SeederId": 6
+  },
+  {
+    "Name": "Grapes",
+    "Description": "Grapes Description",
+    "Url": "https://www.sas.am/images/cache/e00/aa4/8057155a0d90ad4bfb48f8f96bd1584b.jpg",
+    "Price": "14",
+    "CategorySeederId": 1,
+    "SeederId": 7
+  },
+  {
+    "Name": "Dumplings",
+    "Description": "Dumplings Description",
+    "Url": "https://www.sas.am/images/cache/c70/676/67f26e2b3380771b4f2c5ed1263cef04.jpg",
+    "Price": "25",
+    "CategorySeederId": 4,
+    "SeederId": 8
+  },
+  {
+    "Name": "Chocolate",
+    "Description": "Chocolate Description",
+    "Url": "https://www.sas.am/images/cache/e29/4e7/91420915f444617f0e7ee10cea1d77f4.jpg",
+    "Price": "28",
+    "CategorySeederId": 5,
+    "SeederId": 9
+  },
+  {
+    "Name": "Croissant 7 Days",
+    "Description": "Croissant Description 7 Days",
+    "Url": "https://www.sas.am/images/cache/ad3/c06/7a87af8e764973ddded42cbce8c58c8d.JPG",
+    "Price": "19",
+    "CategorySeederId": 5,
+    "SeederId": 10
+  }
+]

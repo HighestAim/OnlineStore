@@ -14,11 +14,16 @@ namespace OnlineStore
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            BuildWebHost(args).Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseKestrel()
+                .UseUrls(@"http://0.0.0.0:5401")
+                .UseIISIntegration()
+                .UseStartup<Startup>()
+                .Build();
     }
 }
