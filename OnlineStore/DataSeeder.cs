@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.IO;
 using OnlineStore.Core.Entites;
 using OnlineStore.Core.Models.JsonModels;
+using System.Diagnostics;
 
 namespace OnlineStore.API
 {
@@ -18,15 +19,22 @@ namespace OnlineStore.API
         private static OnlineStoreContext _context;
         public static void SeedData(this IApplicationBuilder app)
         {
+            Debug.WriteLine("Seed Data Start");
             using (var serviceScope = app.ApplicationServices
            .GetRequiredService<IServiceScopeFactory>()
            .CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<OnlineStoreContext>();
                 _context = context;
+                Debug.WriteLine("Database.Migrate");
+
                 context.Database.Migrate();
+                Debug.WriteLine("MigrateStaticData");
+
                 MigrateStaticData();
             }
+            Debug.WriteLine("Seed Data Complete");
+
         }
 
         private static void MigrateStaticData()
@@ -75,7 +83,7 @@ namespace OnlineStore.API
 
                 if (productJsonData.Any())
                 {
-                    var categories = _context.Categories.Where(category => productJsonData.Any(product => product.CategorySeederId == category.SeederId))
+                    var categories = _context.Categories.ToList().Where(category => productJsonData.Any(product => product.CategorySeederId == category.SeederId))
                                                      .Select(category => new
                                                      {
                                                          category.Id,

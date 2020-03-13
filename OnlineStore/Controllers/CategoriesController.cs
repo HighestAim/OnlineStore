@@ -9,6 +9,9 @@ using OnlineStore.Core.Models.ViewModel;
 using AutoMapper;
 using System.Collections.Generic;
 using System.Linq;
+using OnlineStore.BLL.Managers;
+using Microsoft.AspNetCore.SignalR;
+using OnlineStore.API.Hubs;
 
 namespace OnlineStore.API.Controllers
 {
@@ -19,12 +22,17 @@ namespace OnlineStore.API.Controllers
         private readonly ICategoryOperations _categoryOperations;
         private readonly TokenAuthentification _tokenAuthentication;
         private readonly IMapper _mapper;
+        private readonly IHubContext<EventsHub> _hubContext;
+        private readonly ILiveUpdateOperations _liveUpdateOperations;
 
-        public CategoriesController(ICategoryOperations categoryOperations, IOptions<TokenAuthentification> tokenAuthentication, IMapper mapper)
+        public CategoriesController(ICategoryOperations categoryOperations, IOptions<TokenAuthentification> tokenAuthentication, 
+            IMapper mapper, IHubContext<EventsHub> hubContext, ILiveUpdateOperations liveUpdateOperations)
         {
             _categoryOperations = categoryOperations;
             _tokenAuthentication = tokenAuthentication.Value;
             _mapper = mapper;
+            _hubContext = hubContext;
+            _liveUpdateOperations = liveUpdateOperations;
         }
 
         [HttpGet]
@@ -36,7 +44,7 @@ namespace OnlineStore.API.Controllers
 
             return new Response
             {
-                Result = categories,
+                Result = result,
                 Status = ResponseStatus.Ok,
             };
         }
@@ -46,9 +54,10 @@ namespace OnlineStore.API.Controllers
         public async Task<Response> GetProductByCategoryId(long id)
         {
             var products = await _categoryOperations.GetProductByCategoryIdAsync(id);
-
+            
             var result = _mapper.Map<ProductViewModel[]>(products.ToArray());
-
+            await _hubContext.Clients.Group("SignedUsers").SendAsync("Yahooo", products);
+            await _liveUpdateOperations.SendNotificationToAuthorizedUsers(id, SocketActionType.ContestCancelled, "Jujulik");
             return new Response
             {
                 Status = ResponseStatus.Ok,

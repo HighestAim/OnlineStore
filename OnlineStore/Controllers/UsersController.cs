@@ -69,7 +69,7 @@ namespace OnlineStore.API.Controllers
         public async Task<Response> Register([FromBody]RegistrationViewModel userModel)
         {
             var user = _mapper.Map<User>(userModel);
-            
+
             await _userOperations.CreateAsync(user, userModel.Password);
 
             return new Response
@@ -83,7 +83,7 @@ namespace OnlineStore.API.Controllers
         {
             var users = await _userOperations.GetAllAsync();
             var result = _mapper.Map<UserViewModel[]>(users.ToArray());
-            
+
             return new Response
             {
                 Status = ResponseStatus.Ok,
